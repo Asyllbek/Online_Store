@@ -13,16 +13,16 @@
             </li>
             <li class="nav-item">
                 {% with totail_items=cart|length %}
-                {% if cart|length > 0 %}
-                    <a class="nav-link" href="{% url 'cart:cart_detail' %}">
-                      Корзина <span class="badge badge-secondary">{{ totail_items }}</span>
-                    </a>
+                    {% if cart|length > 0 %}
+                        <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                        Корзина <span class="badge badge-secondary">{{ totail_items }}</span>
+                        </a>
                     {% else %}
-                    <a class="nav-link" href="{% url 'cart:cart_detail' %}">
-                      Корзина пуста
+                         <a class="nav-link" href="{% url 'cart:cart_detail' %}">
+                            Корзина пуста
                     </a>
-                {% endif %}
-            {% endwith %}
+                    {% endif %}
+                {% endwith %}
               </li>
           </ul>
         </div>

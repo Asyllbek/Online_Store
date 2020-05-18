@@ -9,7 +9,7 @@
             <div class="col-sm-8">
                 <h1>{{ product.title }}</h1>
                 <p>{{ product.description | safe }}</p>
-                <form action="{% url "cart:cart_add" product.id %}" method="post">
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
                         {% csrf_token %}
                         {{ cart_product_form }}
                         <input type="submit" value="add to cart" class="btn btn-outline-danger">

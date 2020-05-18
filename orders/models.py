@@ -1,6 +1,6 @@
 from django.db import models
 
-from products.models import Product
+from shop.models import Product
 
 
 class Order (models.Model):
