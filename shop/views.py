@@ -1,10 +1,15 @@
 from django.shortcuts import render, get_object_or_404
-
 from cart.forms import CartAddProductForm
 from .models import Category, Product
+from django.db.models import Q
 
 
 def product_list(request, category_slug=None):
+    search_query = request.GET.get('search', '')
+    if search_query:
+        products = Product.objects.filter(Q(title__icontains=search_query) | Q(body__icontains=search_query))
+    else:
+        products = Product.objects.all()
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
@@ -28,3 +33,4 @@ def product_detail(request, id, slug):
         'cart_product_form': cart_product_form
     }
     return render(request, 'shop/product/detail.html', context)
+

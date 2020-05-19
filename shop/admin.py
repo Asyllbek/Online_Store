@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Category, Product
-
+from users.models import User
 
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']
@@ -19,5 +19,6 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Product, ProductAdmin)
+admin.site.register(User)
 
 #myModels = [Category, Product]

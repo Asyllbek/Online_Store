@@ -1,0 +1,9 @@
+<div>
+    <h2>Зарегистрироваться</h2>
+        <form action="{% url 'users:register' %}" method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit"> Регистрация </button>
+        </form>
+    </div>
+
